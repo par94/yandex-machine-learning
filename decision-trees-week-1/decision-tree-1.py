@@ -70,7 +70,7 @@ def get_code(tree, feature_names, target_names,
 
     recurse(left, right, threshold, features, 0, 0)
 
-df_source = pd.read_csv('decision-trees-week-1/titanic-dataset.csv')
+df_source = pd.read_csv('/Users/antonpiskunov/Programming/yandex-machine-learning/decision-trees-week-1/titanic-dataset.csv')
 df = df_source[['Pclass', 'Fare', 'Age', 'Sex', 'Survived']]
 df['Sex'] = df['Sex'].str.replace("female", "0")
 df['Sex'] = df['Sex'].str.replace("male", "1")
@@ -86,5 +86,8 @@ clf.fit(X, y)
 importances = clf.feature_importances_
 print(features)
 print(importances)
+visualize_tree(clf,features)
+tree.export_graphviz(clf,
+     out_file='tree.dot') 
 
 #get_code(clf, features, y)
