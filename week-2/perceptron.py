@@ -12,14 +12,7 @@ x_train = df_train_source.loc[:, 1:2]
 y_train = df_train_source[0]
 x_test = df_test_source.loc[:, 1:2]
 y_test = df_test_source[0]
-'''
-print(df_test_source.head())
-print(df_train_source.head())
-print(x_test.head())
-print(x_train.head())
-print(y_test.head())
-print(y_train.head())
-'''
+
 percp = Perceptron(random_state=241)
 percp.fit(x_train, y_train)
 y_pred = percp.predict(x_test)
