@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
+import os
 import math
 from sklearn.metrics import roc_auc_score
 from sklearn.linear_model import LogisticRegression
 
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 df_source = pd.read_csv(
-    '/Users/antonpiskunov/Programming/yandex-machine-learning/week-3/data-logistic.csv', header=None)
+    os.path.join(__location__, 'data-logistic.csv'), header=None)
 x = df_source.loc[:, 1:2]
 y = df_source[0]
 
